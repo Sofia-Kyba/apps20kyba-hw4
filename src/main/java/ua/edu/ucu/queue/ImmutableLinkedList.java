@@ -23,7 +23,7 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public ImmutableLinkedList(Object [] c) {
-        if (c.length != 0){
+        if (c.length != 0) {
             this.size = c.length;
             this.head = new Node(c[0]);
             Node currentN = this.head;
@@ -65,20 +65,20 @@ public class ImmutableLinkedList implements ImmutableList {
         while (counter < index && currentN != null) {
             newList[counter] = currentN.data;
             currentN = currentN.next;
-            counter ++;
+            counter++;
         }
 
         int ind = index + c.length;
         while (counter < ind) {
             newList[counter] = c[counter2];
-            counter ++;
-            counter2 ++;
+            counter++;
+            counter2++;
         }
 
         while (currentN != null) {
             newList[counter] = currentN.data;
             currentN = currentN.next;
-            counter ++;
+            counter++;
         }
 
         return new ImmutableLinkedList(newList);
@@ -99,7 +99,7 @@ public class ImmutableLinkedList implements ImmutableList {
             if (counter == index) {
                 return currentN.data;
             }
-            counter ++;
+            counter++;
             currentN = currentN.next;
         }
         return -1;
@@ -118,9 +118,9 @@ public class ImmutableLinkedList implements ImmutableList {
         while (currentN != null) {
             if (counter != index) {
                 newList[i] = currentN.data;
-                i ++;
+                i++;
             }
-            counter ++;
+            counter++;
             currentN = currentN.next;
         }
 
@@ -148,7 +148,7 @@ public class ImmutableLinkedList implements ImmutableList {
                 else {
                     newList[counter] = e;
                 }
-                counter ++;
+                counter++;
                 currentN = currentN.next;
             }
         }
@@ -161,12 +161,12 @@ public class ImmutableLinkedList implements ImmutableList {
         int counter = 0;
         Node currentN = this.head;
         while (currentN != null) {
-            if (currentN.data == e){
+            if (currentN.data == e) {
                 return counter;
             } else {
                 currentN = currentN.next;
             }
-            counter ++;
+            counter++;
         }
         return -1;
     }
@@ -195,7 +195,7 @@ public class ImmutableLinkedList implements ImmutableList {
         while (currentN != null) {
             newList[counter] = currentN.data;
             currentN = currentN.next;
-            counter ++;
+            counter++;
         }
         return newList;
     }

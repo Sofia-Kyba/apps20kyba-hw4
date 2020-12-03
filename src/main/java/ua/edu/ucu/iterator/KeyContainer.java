@@ -1,7 +1,7 @@
 package ua.edu.ucu.iterator;
 import ua.edu.ucu.queue.Queue;
 
-public class KeyContainer implements Container{
+public class KeyContainer implements Container {
     private Queue queue;
 
     public KeyContainer(Queue elements) {
@@ -16,7 +16,7 @@ public class KeyContainer implements Container{
     private static class KeyIterator implements Iterator<String> {
         private Queue queue;
 
-        public KeyIterator(Queue elements) {
+        KeyIterator(Queue elements) {
             this.queue = elements;
         }
 

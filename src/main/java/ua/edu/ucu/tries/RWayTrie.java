@@ -85,10 +85,11 @@ public class RWayTrie implements Trie {
         if (x.val != null) {
             return x;
         }
-        for (char c = 0; c < R; c++)
+        for (char c = 0; c < R; c++) {
             if (x.next[c] != null) {
                 return x;
             }
+        }
         return null;
     }
 

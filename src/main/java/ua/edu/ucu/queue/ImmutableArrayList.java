@@ -34,25 +34,25 @@ public final class ImmutableArrayList implements ImmutableList {
     }
 
     @Override
-    public ImmutableList addAll(int index, Object[] c) {
-        if (index < 0 || index > array.length) {
+    public ImmutableList addAll(int position, Object[] c) {
+        if (position < 0 || position > array.length) {
             throw new IndexOutOfBoundsException();
         }
         Object[] newArray = new Object[array.length + c.length];
-        for (int i = 0; i < index; i++) {
+        for (int i = 0; i < position; i++) {
             newArray[i] = array[i];
         }
 
-        int ind = index + c.length;
+        int ind = position + c.length;
         int counter = 0;
-        for (int j = index; j < ind; j++) {
+        for (int j = position; j < ind; j++) {
             newArray[j] = c[counter];
             counter += 1;
         }
 
         for (int k = ind; k < array.length + c.length; k++) {
-            newArray[k] = array[index];
-            index++;
+            newArray[k] = array[position];
+            position++;
         }
 
         return new ImmutableArrayList(newArray);
@@ -77,7 +77,7 @@ public final class ImmutableArrayList implements ImmutableList {
         for (int i = 0; i < array.length; i++) {
             if (i != index && counter <= newArray.length) {
                 newArray[counter] = array[i];
-                counter ++;
+                counter++;
             }
         }
         return new ImmutableArrayList(newArray);

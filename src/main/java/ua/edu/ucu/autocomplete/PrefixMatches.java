@@ -1,6 +1,5 @@
 package ua.edu.ucu.autocomplete;
 
-import ua.edu.ucu.iterator.Iterator;
 import ua.edu.ucu.tries.Trie;
 import ua.edu.ucu.tries.Tuple;
 
@@ -56,7 +55,7 @@ public class PrefixMatches {
         ArrayList<String> resultWords = new ArrayList<String>();
 
         for (String word: words) {
-            if (word.length() < k + pref.length() ) {
+            if (word.length() < k + pref.length()) {
                 resultWords.add(word);
             }
         }

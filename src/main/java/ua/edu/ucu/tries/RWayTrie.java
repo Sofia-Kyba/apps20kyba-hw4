@@ -31,25 +31,19 @@ public class RWayTrie implements Trie {
         }
         char c = key.charAt(d);
         // Use dth key char to identify subtrie
-        x.next[c] = put(x.next[c], key, val, d+1);
+        x.next[c] = put(x.next[c], key, val, d + 1);
         return x;
     }
 
     @Override
     public boolean contains(String word) {
         Node x = get(root, word, 0);
-        if (x == null){
-            return false;
-        }
-        return true;
+        return x != null;
     }
 
     public Node get(String word)
     {
         Node x = get(root, word, 0);
-        if (x == null) {
-            return null;
-        }
         return x;
     }
 
@@ -86,7 +80,7 @@ public class RWayTrie implements Trie {
             x.val = null;
         } else {
             char c = key.charAt(d);
-            x.next[c] = delete(x.next[c], key, d+1);
+            x.next[c] = delete(x.next[c], key, d + 1);
         }
         if (x.val != null) {
             return x;
@@ -116,9 +110,7 @@ public class RWayTrie implements Trie {
             return;
         }
         if (x.val != null) {
-            if (s.length() > 2){
-                q.enqueue(s);
-            }
+            q.enqueue(s);
         }
         for (char c = 0; c < R; c++) {
             collect(x.next[c], s + c, q);

@@ -61,7 +61,7 @@ public class ImmutableLinkedList implements ImmutableList {
         Node currentN = this.head;
 
         int counter = 0;
-        int counter2 = 0;
+        int counterSecond = 0;
         while (counter < index && currentN != null) {
             newList[counter] = currentN.data;
             currentN = currentN.next;
@@ -70,9 +70,9 @@ public class ImmutableLinkedList implements ImmutableList {
 
         int ind = index + c.length;
         while (counter < ind) {
-            newList[counter] = c[counter2];
+            newList[counter] = c[counterSecond];
             counter++;
-            counter2++;
+            counterSecond++;
         }
 
         while (currentN != null) {
@@ -89,7 +89,7 @@ public class ImmutableLinkedList implements ImmutableList {
         if (index < 0 || index >= this.size) {
             throw new IndexOutOfBoundsException();
         }
-        if (isEmpty()){
+        if (isEmpty()) {
             return null;
         }
 

@@ -18,21 +18,21 @@ public class RWayTrie implements Trie {
         size++;
     }
 
-    private Node put(Node x, String key, int val, int d) {
+    private Node put(Node node, String key, int val, int d) {
         // Change value associated with key if in
-        // subtrie rooted at x.
+        // subtrie rooted at node.
 
-        if (x == null) {
-            x = new Node();
+        if (node == null) {
+            node = new Node();
         }
         if (d == key.length()) {
-            x.val = val;
-            return x;
+            node.val = val;
+            return node;
         }
         char c = key.charAt(d);
         // Use dth key char to identify subtrie
-        x.next[c] = put(x.next[c], key, val, d + 1);
-        return x;
+        node.next[c] = put(node.next[c], key, val, d + 1);
+        return node;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class RWayTrie implements Trie {
     @Override
     public boolean delete(String word) {
         if (contains(word)) {
-            Node x = delete(root, word, 0);
+            delete(root, word, 0);
             size--;
             return true;
         }

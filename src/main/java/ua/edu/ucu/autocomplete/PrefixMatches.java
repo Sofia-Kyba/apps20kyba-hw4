@@ -51,11 +51,22 @@ public class PrefixMatches {
     }
 
     public Iterable<String> wordsWithPrefix(String pref, int k) {
+        if (pref.length() < 2) {
+            throw new IllegalArgumentException();
+        }
+
+        int ind;
+        if (pref.length() == 2) {
+            ind = pref.length() + 1;
+        } else {
+            ind = k + pref.length();
+        }
+
         Iterable<String> words = trie.wordsWithPrefix(pref);
         ArrayList<String> resultWords = new ArrayList<String>();
 
         for (String word: words) {
-            if (word.length() < k + pref.length()) {
+            if (word.length() < ind) {
                 resultWords.add(word);
             }
         }

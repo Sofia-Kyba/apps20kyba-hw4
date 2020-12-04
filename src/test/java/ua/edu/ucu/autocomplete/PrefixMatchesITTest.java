@@ -50,6 +50,7 @@ public class PrefixMatchesITTest {
         Iterable<String> result = pm.wordsWithPrefix(pref);
 
         String[] expResult = {"abc", "abce", "abcd", "abcde", "abcdef"};
+        System.out.println();
 
         assertThat(result, containsInAnyOrder(expResult));
     }
